@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('productos','ArticuloController@index');
+
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
