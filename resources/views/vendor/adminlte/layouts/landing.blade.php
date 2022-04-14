@@ -26,7 +26,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <title>{{ trans('adminlte_lang::message.landingdescriptionpratt') }}</title>
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('/css/all-landing.css') }}" rel="stylesheet">
+    <link href="{{ url('public/css/all-landing.css') }}" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
@@ -57,7 +57,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
-                        <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
                     @else
                         <li><a href="/home">{{ Auth::user()->name }}</a></li>
                     @endif
@@ -294,7 +293,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ url (mix('/js/app-landing.js')) }}"></script>
+<script src="{{ url ('public/js/app-landing.js') }}"></script>
 <script>
     $('.carousel').carousel({
         interval: 3500
