@@ -73,8 +73,6 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
     <script src="{{ url('public/js/app.js') }}"></script>
 </body>
 </html>

@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('productos','ArticuloController@index');
+    Route::get('productos/new','ArticuloController@create');
+    Route::post('guardar_nuevo_producto','ArticuloController@store')->name('guardar_nuevo_producto');
+
+
+    
 
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
