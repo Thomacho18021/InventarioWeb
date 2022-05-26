@@ -5,14 +5,14 @@ Productos
 @endsection
 
 @section('contentheader_title')
-Crear producto
+Editar producto
 @endsection
 
 @section('menuderecho')
 <ol class="breadcrumb">
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="{{ url('/productos') }}">Productos</a></li>
-    <li class="active">Crear</li>
+    <li class="active">Editar</li>
 </ol>
 @endsection
 
@@ -32,7 +32,8 @@ Crear producto
         <div class="box-body">
           <div class="row">
             <div class="col-12 col-md-12">
-              {!! Form::open(['method' => 'POST', 'route' => ['guardar_nuevo_producto'], 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
+              {!! Form::model($producto, ['method' => 'POST', 'route' => ['actualizar_producto'], 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
+                <input type="hidden" name="id_producto" value="{{ $producto->id }}">
                 <div class="form-group row">
                   <label for="codigo" class="col-sm-2 control-label">Código</label>
                   <div class="col-sm-10">
@@ -63,7 +64,7 @@ Crear producto
                     <select id="id_categoria" name="id_categoria" class="form-control">
                       <option value="">[Seleccione]</option>
                       @foreach($categorias as $cat)
-                      <option value="{{ $cat->id }}">{{$cat -> nombre}}</option>
+                      <option value="{{ $cat->id }}" <?php if($cat->id == $producto->id_categoria) echo "selected" ?> >{{$cat -> nombre}}</option>
                       @endforeach
                     </select>
                     <p class="help-block"></p>
@@ -77,7 +78,7 @@ Crear producto
                 <div class="form-group row">
                   <label for="stock" class="col-sm-2 control-label">Stock*</label>
                   <div class="col-sm-10">
-                    <input type="number" step="0.01" name="stock" id="stock" class="form-control" placeholder="Stock" maxlength="191" required>
+                    <input type="number" step="0.01" name="stock" id="stock" class="form-control" placeholder="Stock" value="{{ $producto->stock }}" maxlength="191" required>
                     <p class="help-block"></p>
                     @if($errors->has('stock'))
                     <p class="help-block">
@@ -89,7 +90,7 @@ Crear producto
                 <div class="form-group row">
                   <label for="stock_critico" class="col-sm-2 control-label">Stock Critico*</label>
                   <div class="col-sm-10">
-                    <input type="number" step="0.01" name="stock_critico" id="stock_critico" class="form-control" placeholder="Stock Critico" maxlength="191" required>
+                    <input type="number" step="0.01" name="stock_critico" id="stock_critico" class="form-control" value="{{ $producto->stock_critico }}" placeholder="Stock Critico" maxlength="191" required>
                     <p class="help-block"></p>
                     @if($errors->has('stock_critico'))
                     <p class="help-block">

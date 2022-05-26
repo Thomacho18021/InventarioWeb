@@ -4,6 +4,17 @@
 Productos
 @endsection
 
+@section('contentheader_title')
+Listado de productos
+@endsection
+
+@section('menuderecho')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Productos</li>
+</ol>
+@endsection
+
 @section('main-content')
 
 <div class="container-fluid spark-screen">
@@ -43,7 +54,6 @@ Productos
                                 <th>Fecha Registro</th>
                                 <th>Ultima Actualización</th>
                                 <th>Ubicación</th>
-                                <th>Estado</th>
                                 <th>Acciones</th>
                             </thead>
                             <tbody>
@@ -58,8 +68,10 @@ Productos
                                         <td><?php echo $prod->created_at; ?></td>
                                         <td><?php echo $prod->updated_at; ?></td>
                                         <td><?php echo $prod->ubicacion; ?></td>
-                                        <td><?php if($prod->estado == 0) echo "Activo"; else echo "Inactivo"; ?></td>
-                                        <td></td>
+                                        <td>
+                                            <a class="btn btn-primary btn-sm" href="{{ url('/productos/editar') }}/{{ $prod->id }}">Editar</a>
+                                            <a class="btn btn-danger btn-sm" href="{{ url('/eliminar_producto') }}/{{ $prod->id }}">Eliminar</a>
+                                        </td>
                                     </tr>
                                 <?php } } ?>
                             </tbody>

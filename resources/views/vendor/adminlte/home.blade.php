@@ -4,6 +4,16 @@
 	{{ trans('adminlte_lang::message.home') }}
 @endsection
 
+@section('contentheader_title')
+Home
+@endsection
+
+@section('menuderecho')
+<ol class="breadcrumb">
+    <li class="active">Home</li>
+</ol>
+@endsection
+
 @section('main-content')
 	<div class="container-fluid spark-screen">
 		<div class="row">
@@ -17,7 +27,7 @@
 						</div>
 					</div>
 					<div class="box-body">
-						{{ trans('adminlte_lang::message.logged') }}. Start creating your amazing application!
+						Estas en el home del sistema de Inventario
 					</div>
 				</div>
 			</div>

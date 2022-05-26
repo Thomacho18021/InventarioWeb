@@ -11,14 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
+
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('productos','ArticuloController@index');
     Route::get('productos/new','ArticuloController@create');
     Route::post('guardar_nuevo_producto','ArticuloController@store')->name('guardar_nuevo_producto');
+    Route::get('productos/editar/{id}','ArticuloController@edit');
+    Route::post('actualizar_producto','ArticuloController@update')->name('actualizar_producto');
+    Route::get('eliminar_producto/{id}','ArticuloController@destroy');
 
 
     
