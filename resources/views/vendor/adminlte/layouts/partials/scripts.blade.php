@@ -1,4 +1,10 @@
 <!-- REQUIRED JS SCRIPTS -->
+<script type="text/javascript">
+  var baseurl ="{!! url('/') !!}/";
+  var urlpagina1 ="{!! Request::segment(1) !!}";
+  var urlpagina2 ="{!! Request::segment(2) !!}";
+  var urlpagina3 ="{!! Request::segment(3) !!}";
+</script>
 
 <!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
 <!-- Laravel App -->
@@ -12,6 +18,10 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script>
       $(document).ready(function() {
-            $('#tablaProductos').DataTable();
+            $("#tabla_general_datatable").DataTable({
+                  "language": {
+                        url: baseurl+"public/js/Spanish.json"
+                  },
+            });
       });
 </script>
