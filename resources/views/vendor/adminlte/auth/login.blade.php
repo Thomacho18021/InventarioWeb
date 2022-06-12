@@ -26,10 +26,7 @@
         <div class="login-box-body">
         <p class="login-box-msg"> Inicia sesión para iniciar tu sesión</p>
 
-        <login-form name="{{ config('auth.providers.users.field','email') }}"
-                    domain="{{ config('auth.defaults.domain','') }}"></login-form>
-
-        <a href="{{ url('/password/reset') }}">Restaurar Contraseña</a><br>
+        <login-form name="{{ config('auth.providers.users.field','email') }}" domain="{{ config('auth.defaults.domain','') }}"></login-form>
 
     </div>
 
