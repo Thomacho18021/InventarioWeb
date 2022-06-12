@@ -13,9 +13,9 @@
 
 Route::get('/','HomeController@index');
 
-
-
 Route::group(['middleware' => 'auth'], function () {
+
+    //gestion de productos
     Route::get('productos','ArticuloController@index');
     Route::get('productos/new','ArticuloController@create');
     Route::post('guardar_nuevo_producto','ArticuloController@store')->name('guardar_nuevo_producto');
@@ -23,13 +23,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('actualizar_producto','ArticuloController@update')->name('actualizar_producto');
     Route::get('eliminar_producto/{id}','ArticuloController@destroy');
 
+    //gestion de categorias
+    Route::get('categorias','CategoriasController@index');
+    Route::get('categorias/new','CategoriasController@create');
+    Route::post('guardar_nueva_categoria','CategoriasController@store')->name('guardar_nueva_categoria');
+    Route::get('categorias/editar/{id}','CategoriasController@edit');
+    Route::post('actualizar_categoria','CategoriasController@update')->name('actualizar_categoria');
+    Route::get('eliminar_categoria/{id}','CategoriasController@destroy');
 
-    
-
-    //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
-
-    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-    #adminlte_routes
 });
