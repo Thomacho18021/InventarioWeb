@@ -24,7 +24,9 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ ($request->segment(1) == '')?'active':'' }}"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>Home</span></a></li>
             <li class="{{ ($request->segment(1) == 'productos')?'active':'' }}"><a href="{{ url('/productos') }}"><i class='fa fa-shopping-basket'></i> <span>Productos</span></a></li>
-            <li class="{{ ($request->segment(1) == 'categorias')?'active':'' }}"><a href="{{ url('/categorias') }}"><i class='fa fa-shopping-basket'></i> <span>Categorias</span></a></li>
+            <li class="{{ ($request->segment(1) == 'categorias')?'active':'' }}"><a href="{{ url('/categorias') }}"><i class='fa fa-list'></i> <span>Categorias</span></a></li>
+            <li class="{{ ($request->segment(1) == 'entradainventario')?'active':'' }}"><a href="{{ url('/entradainventario') }}"><i class='fa fa-arrow-down'></i> <span>Entrada Inventario</span></a></li>
+            <li class="{{ ($request->segment(1) == 'salidainventario')?'active':'' }}"><a href="{{ url('/salidainventario') }}"><i class='fa fa-arrow-up'></i> <span>Salida Inventario</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

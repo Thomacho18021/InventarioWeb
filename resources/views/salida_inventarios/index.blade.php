@@ -1,34 +1,33 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-Categorias
+Salida Inventario
 @endsection
 
 @section('contentheader_title')
-Listado de categorias
+Listado de salidas inventarios
 @endsection
 
 @section('menuderecho')
 <ol class="breadcrumb">
     <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Categorias</li>
+    <li class="active">Salida Inventario</li>
 </ol>
 @endsection
 
 @section('main-content')
-
 <div class="container-fluid spark-screen">
     <div class="row">
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Categorias</h3>
+                    <h3 class="box-title">Salida Inventario</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-4">
                             <p>
-                                <a href="{{ url('categorias/new') }}" class="btn btn-success">Nueva Categoria</a>
+                                <a href="{{ url('salidainventario/new') }}" class="btn btn-success">Nueva Salida Inventario</a>
                             </p>
                         </div>
                         <div class="col-md-4">
@@ -42,19 +41,24 @@ Listado de categorias
                         <table id="tabla_general_datatable" class="table table-bordered table-hover">
                             <thead>
                                 <th>ID</th>
-                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Fecha</th>
                                 <th>Acciones</th>
                             </thead>
                             <tbody>
-                                <?php if($listado_categorias){ foreach ($listado_categorias as $cat) { ?>
-                                    <tr>
-                                        <td><?php echo $cat->id; ?></td>
-                                        <td><?php echo $cat->nombre; ?></td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm" href="{{ url('/categorias/editar') }}/{{ $cat->id }}">Editar</a>
-                                            <a class="btn btn-danger btn-sm" href="{{ url('/eliminar_categoria') }}/{{ $cat->id }}" onclick="return confirm('Esta seguro que desea eliminar esta categoria?')">Eliminar</a>
-                                        </td>
-                                    </tr>
+                                <?php
+                                    if($list_inventarios){
+                                        foreach ($list_inventarios as $row) {
+                                ?>
+                                <tr>
+                                    <td>{{ $row->id }}</td>
+                                    <td>{{ $row->descripcion }}</td>
+                                    <td>{{ $row->fecha }}</td>
+                                    <td>
+                                        <a href="{{ url('/') }}/salidainventario/detalle/{{ $row->id }}" title="Visualizar" class="btn btn-sm btn-info">Visualizar</a>
+                                        <a href="{{ url('/') }}/salidainventario/eliminar/{{ $row->id }}" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro que desea eliminar el inventario?')">Eliminar</a>
+                                    </td>
+                                </tr>
                                 <?php } } ?>
                             </tbody>
                         </table>

@@ -66,7 +66,7 @@ Listado de productos
                                         <td><?php echo $prod->ubicacion; ?></td>
                                         <td>
                                             <a class="btn btn-primary btn-sm" href="{{ url('/productos/editar') }}/{{ $prod->id }}">Editar</a>
-                                            <a class="btn btn-danger btn-sm" href="{{ url('/eliminar_producto') }}/{{ $prod->id }}">Eliminar</a>
+                                            <a class="btn btn-danger btn-sm" href="{{ url('/eliminar_producto') }}/{{ $prod->id }}" onclick="return confirm('Esta seguro que desea eliminar este producto?')">Eliminar</a>
                                         </td>
                                     </tr>
                                 <?php } } ?>

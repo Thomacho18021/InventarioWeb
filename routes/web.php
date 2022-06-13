@@ -31,4 +31,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('actualizar_categoria','CategoriasController@update')->name('actualizar_categoria');
     Route::get('eliminar_categoria/{id}','CategoriasController@destroy');
 
+    //gestion de entrada de inventario
+    Route::get('entradainventario','EntradaInventarioController@index');
+    Route::get('entradainventario/new','EntradaInventarioController@create');
+    Route::post('guardar_nueva_entrada_inventario','EntradaInventarioController@store')->name('guardar_nueva_entrada_inventario');
+    Route::get('entradainventario/detalle/{id}','EntradaInventarioController@show');
+    Route::get('entradainventario/eliminar/{id}','EntradaInventarioController@eliminar');
+
+    //gestion de salida de inventario
+    Route::get('salidainventario','SalidaInventarioController@index');
+    Route::get('salidainventario/new','SalidaInventarioController@create');
+    Route::post('guardar_nueva_salida_inventario','SalidaInventarioController@store')->name('guardar_nueva_salida_inventario');
+    Route::get('salidainventario/detalle/{id}','SalidaInventarioController@show');
+    Route::get('salidainventario/eliminar/{id}','SalidaInventarioController@destroy');
+
 });
